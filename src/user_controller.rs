@@ -17,7 +17,14 @@ pub async fn hello() -> impl Responder {
 
 #[post("/user")]
 pub async fn echo(request_user: web::Json<RequestUser>) -> Result<HttpResponse, Error> {
-    Ok(HttpResponse::Ok().json(request_user))
+    let user: User = User {
+        id: Uuid::new_v4(),
+        family_name: request_user.0.family_name,
+        given_name: request_user.0.given_name,
+        email: request_user.0.email
+    };
+
+    Ok(HttpResponse::Ok().json(user))
 }
 
 // #[delete("/user/{user_id}")]
