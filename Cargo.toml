@@ -15,4 +15,6 @@ path = "src/main.rs"
 [dependencies]
 actix-web = "4"
 config = "0.12"
+serde = { version = "1.0" }
+serde_json = "1.0"
 uuid = { version = "0.8", features = ["serde", "v4"] }
