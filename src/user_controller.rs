@@ -27,7 +27,7 @@ pub async fn echo(req_body: String) -> impl Responder {
     HttpResponse::Ok().body(String::from("test"))
 }
 
-#[delete("/user")]
+#[delete("/user/{user_id}")]
 pub async fn delete_user(user_id: String) -> impl Responder {
-    HttpResponse::Ok()
+    HttpResponse::Ok().body(String::from("successfully deleted {}"))
 }
